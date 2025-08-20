@@ -1,0 +1,16 @@
+{
+  "name": "mlb-baseball-visualization",
+  "version": "1.0.0",
+  "description": "Interactive MLB hitting statistics visualization",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx http-server -p 8080",
+    "dev": "npx http-server -p 8080 -o"
+  },
+  "dependencies": {
+    "@observablehq/runtime": "^5.9.9"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}

@@ -253,7 +253,7 @@ Before beginning our visualization process, we'll perform a comprehensive valida
 )}
 
 function _BaseballHitting(__query,FileAttachment,invalidation){return(
-__query(FileAttachment("baseball_hitting_processed2@4.csv"),{from:{table:"baseball_hitting_processed2"},sort:[],slice:{to:null,from:null},filter:[],select:{columns:null}},invalidation)
+__query(FileAttachment("../data/baseball_hitting_processed2.csv"),{from:{table:"baseball_hitting_processed2"},sort:[],slice:{to:null,from:null},filter:[],select:{columns:null}},invalidation)
 )}
 
 function _9(md){return(
