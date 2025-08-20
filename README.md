@@ -2,6 +2,10 @@
 
 A comprehensive data visualization project analyzing MLB hitting statistics from the 1800s to present, exploring position-specific performance patterns, power hitting trends, and player efficiency metrics.
 
+![JavaScript](https://img.shields.io/badge/javascript-ES6+-yellow.svg)
+![Observable](https://img.shields.io/badge/Observable-notebook-orange.svg)
+![D3.js](https://img.shields.io/badge/d3.js-v7-blue.svg)
+
 ## 📊 Project Overview
 
 This project analyzes over 2,500 MLB players using 32 different hitting metrics to answer key questions about baseball performance patterns:
@@ -25,7 +29,9 @@ This project analyzes over 2,500 MLB players using 32 different hitting metrics 
 ## ⚡ Quick Start
 
 ### View Online
-- **Live Demo**: [Observable Notebook](https://observablehq.com/d/c95ccf8b0c048dda@898)
+- **Interactive Demo**: [Observable Notebook](https://observablehq.com/d/c95ccf8b0c048dda@898)
+- **PDF Export**: [Static Report Version](https://observablehq.com/d/c95ccf8b0c048dda@898.pdf) - Complete analysis with all visualizations
+- **Observable Profile**: [@will-smith](https://observablehq.com/@will-smith)
 
 ### Run Locally
 ```bash
@@ -145,6 +151,14 @@ npm run dev
 2. Add new chart functions
 3. Update interactive controls
 4. Test across different screen sizes
+
+## 📱 Browser Compatibility
+
+- ✅ Chrome 80+
+- ✅ Firefox 75+
+- ✅ Safari 13+
+- ✅ Edge 80+
+- ✅ Mobile browsers (iOS Safari, Android Chrome)
 
 ## 🔮 Future Enhancements
 
