@@ -146,14 +146,6 @@ npm run dev
 3. Update interactive controls
 4. Test across different screen sizes
 
-## 📱 Browser Compatibility
-
-- ✅ Chrome 80+
-- ✅ Firefox 75+
-- ✅ Safari 13+
-- ✅ Edge 80+
-- ✅ Mobile browsers (iOS Safari, Android Chrome)
-
 ## 🔮 Future Enhancements
 
 - [ ] Real-time MLB API integration
