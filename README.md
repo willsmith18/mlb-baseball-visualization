@@ -1,8 +1,13 @@
 # ⚾ MLB Baseball Statistics Data Visualization
 
+**🚀 [View Interactive Visualization on Observable](https://observablehq.com/d/c95ccf8b0c048dda@898)**
+
 A comprehensive interactive data visualization analyzing MLB hitting statistics from the 1800s to present, exploring position-specific performance patterns, power hitting trends, and player efficiency metrics.
 
-[![Observable Link](https://observablehq.com/d/c78038dd392acc6d)
+[![Live Demo](https://img.shields.io/badge/Live-Demo-blue)](https://your-username.github.io/mlb-baseball-visualization)
+[![Observable](https://img.shields.io/badge/Observable-notebook-orange.svg)](https://observablehq.com/d/c95ccf8b0c048dda@898)
+![JavaScript](https://img.shields.io/badge/javascript-ES6+-yellow.svg)
+![D3.js](https://img.shields.io/badge/d3.js-v7-blue.svg)
 
 ## 🎯 Key Features
 
@@ -21,6 +26,12 @@ A comprehensive interactive data visualization analyzing MLB hitting statistics 
 5. **Plate Discipline vs Power**: Trade-offs between contact and power approaches
 6. **Career Sweet Spots**: Optimal performance periods by experience level
 7. **Run Production Efficiency**: Most effective hitting approaches for scoring
+
+## 🚀 Live Demo
+
+**[→ Interactive Observable Notebook](https://observablehq.com/d/c95ccf8b0c048dda@898)** ⭐ **Recommended**
+
+**[→ GitHub Pages Demo](https://your-username.github.io/mlb-baseball-visualization)**
 
 **Key Interactions:**
 - Filter by position, metric, and playing time
@@ -86,8 +97,7 @@ mlb-baseball-visualization/
 ├── data/
 │   └── baseball_hitting_processed2.csv
 ├── assets/
-│   ├── inspector.css            # Observable styling
-│   └── preview.png             # Project screenshot
+│   └── inspector.css            # Observable styling
 ├── docs/
 │   └── methodology.md          # Data processing details
 ├── index.html                  # Entry point
@@ -150,5 +160,9 @@ Rscript src/data_pre_processing.R
 - Statistical analysis and validation
 - Responsive web design
 - Performance optimization
+
+---
+
+**Built by Will Smith** | [LinkedIn](https://linkedin.com/in/william-smith-0aa175264) | [Observable](https://observablehq.com/@will-smith)
 
 *Demonstrating modern data visualization, statistical analysis, and interactive web development skills.*
