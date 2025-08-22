@@ -1,193 +1,153 @@
 # ⚾ MLB Baseball Statistics Data Visualization
 
-A comprehensive data visualization project analyzing MLB hitting statistics from the 1800s to present, exploring position-specific performance patterns, power hitting trends, and player efficiency metrics.
+A comprehensive interactive data visualization analyzing MLB hitting statistics from the 1800s to present, exploring position-specific performance patterns, power hitting trends, and player efficiency metrics.
 
-![JavaScript](https://img.shields.io/badge/javascript-ES6+-yellow.svg)
-![Observable](https://img.shields.io/badge/Observable-notebook-orange.svg)
-![D3.js](https://img.shields.io/badge/d3.js-v7-blue.svg)
+## 🎯 Key Features
 
-## 📊 Project Overview
+- **Interactive Visualizations**: 7 comprehensive charts with real-time filtering
+- **Position Analysis**: Power correlations across defensive positions  
+- **Advanced Metrics**: Custom-engineered statistics (ISO, RPE, BB/K ratio)
+- **Performance Patterns**: Career progression and efficiency analysis
+- **Responsive Design**: Works seamlessly across all devices
 
-This project analyzes over 2,500 MLB players using 32 different hitting metrics to answer key questions about baseball performance patterns:
+## 📊 Analysis Questions Answered
 
 1. **Position-Power Correlation**: How do player positions relate to power hitting metrics?
 2. **Strikeout-Production Relationship**: Are high-strikeout players more productive?
 3. **Base Stealing Efficiency**: What makes an efficient base stealer?
-4. **Position-Specific Distributions**: How does OPS vary across defensive positions?
-5. **Plate Discipline Analysis**: Power vs. contact approach trade-offs
-6. **Playing Time Optimization**: Performance sweet spots by experience
-7. **Run Production Efficiency**: Most effective hitting approaches
+4. **Performance Distribution**: How does OPS vary across defensive positions?
+5. **Plate Discipline vs Power**: Trade-offs between contact and power approaches
+6. **Career Sweet Spots**: Optimal performance periods by experience level
+7. **Run Production Efficiency**: Most effective hitting approaches for scoring
 
-## 🚀 Key Findings
+**Key Interactions:**
+- Filter by position, metric, and playing time
+- Hover for detailed player statistics  
+- Switch between different offensive metrics
+- Explore density patterns and outliers
 
-- **Power Hierarchy**: DH > 1B > Corner OF > 3B/CF > C > Middle IF positions
-- **Strikeout Paradox**: High strikeout players often maintain strong offensive production (OPS >.750)
-- **Base Stealing**: 75% success rate is the efficiency threshold; correlates with higher OBP
-- **Experience Sweet Spot**: Peak performance occurs between 6,000-10,000 plate appearances
-- **Balanced Approach**: Players mixing doubles with occasional home runs are most efficient run producers
+## 🏗️ Technical Implementation
+
+**Frontend Stack:**
+- **Observable Plot** - Modern grammar of graphics
+- **D3.js v7** - Custom visualizations and interactions
+- **JavaScript ES6+** - Async/await, modern syntax
+- **CSS Grid/Flexbox** - Responsive layouts
+
+**Data Pipeline:**
+- **R** - Statistical preprocessing and feature engineering
+- **CSV Processing** - 2,500+ player records with 33 metrics
+- **Derived Statistics** - ISO, RPE, success rates, efficiency metrics
+
+**Performance Optimizations:**
+- Efficient data binding and updates
+- Scalable visualization rendering
+- Optimized filtering algorithms
+- Mobile-responsive interactions
+
+## 📈 Key Findings
+
+- **Power Hierarchy**: DH > 1B > Corner OF > 3B/CF > C > Middle IF
+- **Strikeout Paradox**: High-K players often maintain strong OPS (>.750)
+- **Base Stealing**: 75% success rate threshold; correlates with higher OBP  
+- **Career Peak**: 6,000-10,000 plate appearances optimal range
+- **Balanced Approach**: Mixed doubles/HR players most efficient
 
 ## ⚡ Quick Start
 
-### View Online
-- **Interactive Demo**: [Observable Notebook](https://observablehq.com/d/c95ccf8b0c048dda@898)
-- **PDF Export**: [Static Report Version](https://observablehq.com/d/c95ccf8b0c048dda@898.pdf) - Complete analysis with all visualizations
-- **Observable Profile**: [@will-smith](https://observablehq.com/@will-smith)
-
-### Run Locally
+### Option 1: View Online
 ```bash
-# Clone the repository
-git clone https://github.com/your-username/mlb-baseball-visualization.git
-cd mlb-baseball-visualization
+# Live demo (recommended)
+https://your-username.github.io/mlb-baseball-visualization
 
-# Install dependencies
-npm install
-
-# Start local server
-npm start
-# OR
-npx http-server
-
-# Open browser to localhost:8080
+# Observable notebook
+https://observablehq.com/d/c95ccf8b0c048dda@898
 ```
 
-## 🏗️ Project Structure
+### Option 2: Run Locally
+```bash
+git clone https://github.com/your-username/mlb-baseball-visualization.git
+cd mlb-baseball-visualization
+npm install
+npm start
+# Open http://localhost:8080
+```
+
+## 📁 Project Structure
 
 ```
 mlb-baseball-visualization/
 ├── src/
-│   ├── index.js              # Main notebook export
-│   ├── data/
-│   │   └── baseball_hitting_processed2.csv
-│   └── assets/
-│       ├── inspector.css     # Observable styling
-│       └── runtime.js        # Observable runtime
+│   ├── data_visualization.js     # Main Observable notebook
+│   ├── runtime.js               # Observable runtime
+│   └── data_pre_processing.R    # R preprocessing pipeline
+├── data/
+│   └── baseball_hitting_processed2.csv
+├── assets/
+│   ├── inspector.css            # Observable styling
+│   └── preview.png             # Project screenshot
 ├── docs/
-│   └── methodology.md        # Data preprocessing details
-├── examples/
-│   └── standalone-charts.html
-├── index.html               # Main entry point
-├── package.json
+│   └── methodology.md          # Data processing details
+├── index.html                  # Entry point
 └── README.md
 ```
 
-## 📈 Visualizations Included
+## 🔧 Development
 
-### Interactive Charts
-- **Position Power Analysis**: Bar charts with league averages
-- **Strikeout Scatter Plots**: With density contours and filters
-- **Base Stealing Efficiency**: Bubble chart with success rate thresholds
-- **OPS Distribution**: Box plots across all positions
-- **Plate Discipline Matrix**: Interactive position highlighting
-- **Career Development**: Playing time vs. performance analysis
-- **Run Production Heatmaps**: Hit type efficiency analysis
+**Prerequisites:**
+- Node.js 14+
+- Modern browser with ES6 support
+- (Optional) R for data preprocessing
 
-### Key Features
-- Interactive filtering by position, metrics, and playing time
-- Hover tooltips with detailed player information
-- Real-time metric switching and comparison
-- Responsive design for all screen sizes
-
-## 🔧 Technical Implementation
-
-**Data Processing Pipeline**:
-1. **R Preprocessing**: Statistical validation and feature engineering
-2. **Observable Integration**: Real-time interactive visualizations
-3. **D3.js Rendering**: Custom charts with smooth animations
-4. **Performance Optimization**: Efficient data binding and updates
-
-**Key Technologies**:
-- **Observable Plot**: Modern grammar of graphics
-- **D3.js v7**: Custom visualizations and interactions
-- **JavaScript ES6+**: Modern async/await patterns
-- **CSS Grid/Flexbox**: Responsive layout system
-
-## 📊 Dataset Details
-
-**Source**: [Kaggle MLB Hitting Statistics Dataset](https://www.kaggle.com/datasets/joyshil0599/mlb-hitting-and-pitching-stats-through-the-years)
-
-**Scope**: 
-- **Players**: 2,500+ MLB players
-- **Time Period**: 1800s to present
-- **Metrics**: 32 hitting statistics
-- **Derived Features**: 15+ engineered metrics (ISO, RPE, BB/K ratio, etc.)
-
-**Data Quality**:
-- Comprehensive validation and cleaning
-- Missing value imputation with domain knowledge
-- Outlier detection and analysis
-- Statistical consistency checks
-
-## 🎯 Analytical Approach
-
-### Question-Driven Analysis
-Each visualization addresses specific baseball analytics questions:
-- Position-based performance expectations
-- Modern vs. traditional hitting approaches
-- Efficiency metrics for player evaluation
-- Career development patterns
-
-### Statistical Rigor
-- League average baselines for context
-- Confidence intervals and error handling
-- Sample size considerations (minimum PA filters)
-- Multiple metric validation
-
-## 🚀 Development
-
-**Local Development**:
+**Local Development:**
 ```bash
-# Install Observable runtime
-npm install @observablehq/runtime
+# Install dependencies
+npm install
 
-# For custom modifications
-npm install d3 @observablehq/plot
-
-# Development server with hot reload
+# Start development server
 npm run dev
+
+# Build for production
+npm run build
 ```
 
-**Adding New Visualizations**:
-1. Modify `src/index.js` 
-2. Add new chart functions
-3. Update interactive controls
-4. Test across different screen sizes
+**Data Processing:**
+```bash
+# Run R preprocessing (optional)
+Rscript src/data_pre_processing.R
+```
 
-## 📱 Browser Compatibility
+## 📊 Dataset
 
-- ✅ Chrome 80+
-- ✅ Firefox 75+
-- ✅ Safari 13+
-- ✅ Edge 80+
-- ✅ Mobile browsers (iOS Safari, Android Chrome)
+**Source**: [Kaggle MLB Hitting Statistics](https://www.kaggle.com/datasets/joyshil0599/mlb-hitting-and-pitching-stats-through-the-years)
 
-## 🔮 Future Enhancements
+**Scope**: 
+- 2,500+ MLB players (1800s-present)
+- 32 original + 15 engineered metrics
+- Comprehensive validation and cleaning
+- Advanced statistical features
 
-- [ ] Real-time MLB API integration
-- [ ] Player comparison tool
-- [ ] Historical trend animations
-- [ ] Pitch-by-pitch analysis integration
-- [ ] Team-level aggregations
-- [ ] Export functionality for all charts
+## 🎨 Design Principles
 
-## 👨‍💻 Author
+- **Question-Driven**: Each visualization addresses specific analytics questions
+- **Interactive Exploration**: Real-time filtering and metric switching
+- **Statistical Rigor**: League averages, confidence intervals, sample size filters
+- **Accessibility**: Color-blind friendly palettes, semantic markup
+- **Performance**: Optimized for smooth interactions across devices
 
-**Will Smith**
-- 🎓 University of Nottingham - Computer Science
-- 📊 Data Visualization Coursework Project
-- 💼 [LinkedIn](https://observablehq.com/@will-smith)
-- 📧 Contact via Observable profile
+## 🏆 Project Highlights
 
-## 📄 License
+**Academic Excellence:**
+- University of Nottingham Computer Science coursework
+- Advanced data visualization techniques
+- Statistical analysis and feature engineering
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🙏 Acknowledgments
-
-- **Data Source**: Kaggle MLB Statistics Dataset
-- **Observable Team**: For the excellent visualization platform
-- **D3.js Community**: For comprehensive documentation and examples
-- **Baseball Analytics Community**: For domain knowledge and best practices
-
+**Technical Skills Demonstrated:**
+- Modern JavaScript development
+- Data visualization best practices  
+- Statistical analysis and validation
+- Responsive web design
+- Performance optimization
 ---
 
-*Built for Data Visualization coursework, demonstrating modern web-based analytics and interactive storytelling techniques.*
+**Built by Will Smith** | [LinkedIn](https://linkedin.com/in/william-smith-0aa175264) | [Observable](https://observablehq.com/@will-smith)
