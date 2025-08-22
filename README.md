@@ -2,6 +2,8 @@
 
 A comprehensive interactive data visualization analyzing MLB hitting statistics from the 1800s to present, exploring position-specific performance patterns, power hitting trends, and player efficiency metrics.
 
+[![Observable Link](https://observablehq.com/d/c78038dd392acc6d)
+
 ## 🎯 Key Features
 
 - **Interactive Visualizations**: 7 comprehensive charts with real-time filtering
@@ -148,6 +150,5 @@ Rscript src/data_pre_processing.R
 - Statistical analysis and validation
 - Responsive web design
 - Performance optimization
----
 
-**Built by Will Smith** | [LinkedIn](https://linkedin.com/in/william-smith-0aa175264) | [Observable](https://observablehq.com/@will-smith)
+*Demonstrating modern data visualization, statistical analysis, and interactive web development skills.*
