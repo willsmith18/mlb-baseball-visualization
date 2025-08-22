@@ -1,14 +1,257 @@
 <!DOCTYPE html>
-<meta charset="utf-8">
-<title>MLB Baseball Statistics Data Visualization</title>
-<link rel="stylesheet" type="text/css" href="./assets/inspector.css">
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MLB Baseball Statistics | Will Smith</title>
+    
+    <!-- Load Observable dependencies -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f8f9fa;
+            line-height: 1.6;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding: 2rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .header h1 {
+            color: #2c3e50;
+            margin: 0 0 0.5rem 0;
+            font-size: 2.5rem;
+        }
+        
+        .links {
+            margin: 1rem 0;
+        }
+        
+        .links a {
+            display: inline-block;
+            margin: 0 0.5rem;
+            padding: 0.5rem 1rem;
+            background: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .status {
+            padding: 1rem;
+            border-radius: 4px;
+            margin: 1rem 0;
+            text-align: center;
+        }
+        
+        .loading { background: #e3f2fd; color: #1976d2; }
+        .success { background: #e8f5e8; color: #2e7d32; }
+        .error { background: #ffebee; color: #c62828; }
+        
+        /* Observable notebook styling */
+        .observablehq {
+            font: 13px/1.6 var(--sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif);
+            margin: 0;
+        }
+        
+        .observablehq--hide {
+            display: none;
+        }
+        
+        .observablehq--inspect {
+            font: 12px/1.5 var(--mono-fonts, Menlo, Consolas, monospace);
+            overflow-x: auto;
+            display: block;
+            white-space: pre;
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 4px;
+            margin: 1rem 0;
+        }
+        
+        .observablehq svg {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        .observablehq h1, .observablehq h2, .observablehq h3 {
+            margin: 2rem 0 1rem 0;
+            font-weight: 600;
+        }
+        
+        .observablehq h1 {
+            font-size: 2rem;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 0.5rem;
+        }
+        
+        .observablehq h2 {
+            font-size: 1.5rem;
+            color: #333;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 1rem;
+            color: #7f8c8d;
+        }
+    </style>
+</head>
 <body>
-<script type="module">
-import define from "./src/data_visualization.js";
-import {Runtime, Library, Inspector} from "./src/runtime.js";
+    <div class="header">
+        <h1>⚾ MLB Baseball Statistics</h1>
+        <p>Interactive Data Visualization | Will Smith</p>
+        <div class="links">
+            <a href="https://github.com/your-username/mlb-baseball-visualization" target="_blank">📁 GitHub</a>
+            <a href="https://observablehq.com/d/c95ccf8b0c048dda@898" target="_blank">📊 Observable</a>
+            <a href="https://linkedin.com/in/william-smith-0aa175264" target="_blank">👤 LinkedIn</a>
+        </div>
+    </div>
 
-const runtime = new Runtime();
-const main = runtime.module(define, Inspector.into(document.body));
-</script>
+    <div class="container">
+        <div id="status" class="status loading">
+            🔄 Loading visualization...
+        </div>
+        
+        <div id="notebook" class="observablehq">
+            <!-- Observable notebook will render here -->
+        </div>
+    </div>
+
+    <footer>
+        <p>Created by <strong>William Smith</strong> | University of Nottingham | Computer Science</p>
+    </footer>
+
+    <script type="module">
+        import {Runtime, Library, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
+        
+        const statusDiv = document.getElementById('status');
+        
+        async function loadVisualization() {
+            try {
+                statusDiv.innerHTML = '🔄 Loading Observable runtime...';
+                
+                // Load your notebook definition
+                const module = await import('./src/data_visualization.js');
+                const define = module.default;
+                
+                statusDiv.innerHTML = '🔄 Initializing visualization...';
+                
+                // Create custom inspector that filters out code cells
+                function customInspector(selector) {
+                    return function(name) {
+                        const node = document.querySelector(selector);
+                        if (!node) return;
+                        
+                        return {
+                            pending() {
+                                // Show loading for charts
+                                if (name && !name.startsWith('_')) {
+                                    const div = document.createElement('div');
+                                    div.style.padding = '1rem';
+                                    div.style.textAlign = 'center';
+                                    div.style.color = '#666';
+                                    div.innerHTML = `🔄 Loading ${name}...`;
+                                    node.appendChild(div);
+                                    return div;
+                                }
+                            },
+                            fulfilled(value, name) {
+                                // Only show visualizations, not code
+                                if (name && name.startsWith('_')) {
+                                    return; // Skip private variables
+                                }
+                                
+                                if (value && (value.tagName === 'DIV' || value.tagName === 'SVG' || value.tagName === 'FIGURE')) {
+                                    // This is likely a visualization
+                                    const container = document.createElement('div');
+                                    container.style.margin = '2rem 0';
+                                    container.appendChild(value);
+                                    node.appendChild(container);
+                                } else if (typeof value === 'string' && value.includes('<')) {
+                                    // HTML content
+                                    const div = document.createElement('div');
+                                    div.innerHTML = value;
+                                    div.style.margin = '1rem 0';
+                                    node.appendChild(div);
+                                } else if (name && !name.startsWith('viewof') && value != null) {
+                                    // Other meaningful outputs (but not internal variables)
+                                    const div = document.createElement('div');
+                                    div.style.margin = '1rem 0';
+                                    
+                                    if (typeof value === 'object' && value.constructor === Object) {
+                                        // Don't show plain objects
+                                        return;
+                                    } else {
+                                        div.appendChild(value);
+                                        node.appendChild(div);
+                                    }
+                                }
+                            },
+                            rejected(error, name) {
+                                const div = document.createElement('div');
+                                div.style.background = '#ffebee';
+                                div.style.color = '#c62828';
+                                div.style.padding = '1rem';
+                                div.style.borderRadius = '4px';
+                                div.style.margin = '1rem 0';
+                                div.innerHTML = `❌ Error in ${name}: ${error.message}`;
+                                node.appendChild(div);
+                            }
+                        };
+                    };
+                }
+                
+                // Initialize Observable runtime
+                const runtime = new Runtime();
+                const main = runtime.module(define, customInspector("#notebook"));
+                
+                statusDiv.className = 'status success';
+                statusDiv.innerHTML = '✅ Visualization loaded successfully!';
+                
+                // Hide status after a moment
+                setTimeout(() => {
+                    statusDiv.style.display = 'none';
+                }, 3000);
+                
+                console.log('✅ MLB Visualization loaded');
+                
+            } catch (error) {
+                console.error('Error loading visualization:', error);
+                
+                statusDiv.className = 'status error';
+                statusDiv.innerHTML = `
+                    ❌ Error loading visualization: ${error.message}
+                    <br><small>Check browser console for details</small>
+                `;
+            }
+        }
+        
+        // Initialize when DOM is ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', loadVisualization);
+        } else {
+            loadVisualization();
+        }
+    </script>
 </body>
 </html>

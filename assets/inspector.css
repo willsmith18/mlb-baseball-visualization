@@ -1,0 +1,161 @@
+/* Observable Inspector Styles */
+:root {
+  --syntax_normal: #1b1e23;
+  --syntax_comment: #a9b0bc;
+  --syntax_number: #20a5ba;
+  --syntax_keyword: #c30771;
+  --syntax_atom: #10a778;
+  --syntax_string: #008ec4;
+  --syntax_error: #ffbedc;
+  --syntax_unknown_variable: #838383;
+  --syntax_known_variable: #005f87;
+  --syntax_matchbracket: #20bbfc;
+  --syntax_key: #6636b4;
+  --mono_fonts: 82%/1.5 Menlo, Consolas, monospace;
+}
+
+.observablehq {
+  font: 13px/1.6 var(--sans-serif);
+  margin: 0;
+  background: white;
+}
+
+.observablehq--collapsed,
+.observablehq--hidden {
+  display: none;
+}
+
+.observablehq--inspect {
+  font: var(--mono_fonts);
+  overflow-x: auto;
+  display: block;
+  white-space: pre;
+}
+
+.observablehq--error .observablehq--inspect {
+  word-break: break-all;
+  white-space: pre-wrap;
+  color: var(--syntax_error);
+}
+
+.observablehq--loading {
+  color: var(--syntax_comment);
+}
+
+/* Visualization container styling */
+.observablehq > div {
+  margin: 1rem 0;
+}
+
+/* Chart containers */
+.observablehq svg {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Interactive elements */
+.observablehq input,
+.observablehq select,
+.observablehq textarea {
+  font: inherit;
+  margin: 0.25rem 0;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.observablehq button {
+  font: inherit;
+  padding: 0.5rem 1rem;
+  background: #007acc;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.observablehq button:hover {
+  background: #005a9e;
+}
+
+/* Layout improvements */
+.observablehq h1, 
+.observablehq h2, 
+.observablehq h3 {
+  margin: 2rem 0 1rem 0;
+  font-weight: 600;
+}
+
+.observablehq h1 {
+  font-size: 2rem;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 0.5rem;
+}
+
+.observablehq h2 {
+  font-size: 1.5rem;
+  color: #333;
+}
+
+/* Code blocks */
+.observablehq pre {
+  background: #f8f9fa;
+  padding: 1rem;
+  border-radius: 4px;
+  overflow-x: auto;
+  font: var(--mono_fonts);
+}
+
+/* Tables */
+.observablehq table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1rem 0;
+}
+
+.observablehq th,
+.observablehq td {
+  border: 1px solid #ddd;
+  padding: 0.5rem;
+  text-align: left;
+}
+
+.observablehq th {
+  background: #f8f9fa;
+  font-weight: 600;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .observablehq {
+    font-size: 12px;
+    padding: 0 1rem;
+  }
+  
+  .observablehq svg {
+    max-width: 100%;
+  }
+}
+
+/* Custom styling for your project */
+.chart-container {
+  margin: 2rem 0;
+  padding: 1rem;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  background: white;
+}
+
+.chart-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.controls {
+  margin: 1rem 0;
+  padding: 1rem;
+  background: #f8f9fa;
+  border-radius: 4px;
+}

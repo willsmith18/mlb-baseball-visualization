@@ -1,16 +1,46 @@
 {
   "name": "mlb-baseball-visualization",
   "version": "1.0.0",
-  "description": "Interactive MLB hitting statistics visualization",
+  "description": "Interactive MLB hitting statistics visualization with D3.js and Observable",
   "main": "index.html",
+  "homepage": "https://your-username.github.io/mlb-baseball-visualization",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/mlb-baseball-visualization.git"
+  },
+  "author": {
+    "name": "William Smith",
+    "email": "wsmith4313@outlook.com",
+    "url": "https://linkedin.com/in/william-smith-0aa175264"
+  },
+  "license": "MIT",
+  "keywords": [
+    "data-visualization",
+    "baseball-analytics", 
+    "d3js",
+    "observable",
+    "interactive-charts",
+    "sports-statistics",
+    "javascript",
+    "machine-learning"
+  ],
   "scripts": {
-    "start": "npx http-server -p 8080",
-    "dev": "npx http-server -p 8080 -o"
+    "start": "npx http-server -p 8080 -c-1",
+    "dev": "npx http-server -p 8080 -o -c-1",
+    "build": "npm run copy-files",
+    "copy-files": "mkdir -p dist && cp -r src data assets index.html dist/",
+    "preview": "node screenshot.js",
+    "test": "echo \"No tests specified\" && exit 0"
   },
   "dependencies": {
-    "@observablehq/runtime": "^5.9.9"
+    "@observablehq/runtime": "^5.9.9",
+    "@observablehq/plot": "^0.6.11"
   },
   "devDependencies": {
-    "http-server": "^14.1.1"
+    "http-server": "^14.1.1",
+    "puppeteer": "^21.0.0"
+  },
+  "engines": {
+    "node": ">=14.0.0"
   }
 }
